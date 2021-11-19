@@ -1,4 +1,4 @@
-import { Controller, Get } from "@nestjs/common";
+import { Controller, Get, Param } from "@nestjs/common";
 import { CatsService } from "../service/cats.service";
 
 @Controller('cats')
@@ -8,17 +8,17 @@ export class CatsController {
 
     @Get()
     getAllCats() {
-        return "todos os gatos e informações"
+        return this.catsService.getAllCats()
     }
 
     @Get('breeds')
     getAllBreeds() {
-        return "Todas as raças"
+        return this.catsService.getAllBreeds()
     }
 
     @Get('breeds/:id')
-    getBreedInfo() {
-        return "Informações sobre a raça específica"
+    getBreedInfo(@Param() param) {
+        return this.catsService.getBreedDetail(param)
     }
 
 

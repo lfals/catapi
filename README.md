@@ -1,73 +1,65 @@
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
+ <h1>CatApi</h1>
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+This is a API that *(will)* give you the main information about cat breeds, like name of the breed it self, popular name, max-age, fur color and more.
 
-## Description
+# Routes
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+The main route for the api is https://catapi-eight.vercel.app/api
 
-## Installation
+## Cats - [/cats](https://catapi-eight.vercel.app/api/cats)
+The cats route, give you all the breed of the database, including their description.
 
-```bash
-$ npm install
+```json
+
+{
+    "id": "ae0e71b7-45d8-47da-b13b-26f4fb87039b",
+    "breed": "pelo curto brasileiro",
+    "name": "Vira Lata",
+    "origin": "Brasil",
+    "fur": "Curta, sedosa, bem fechada, deitada junto ao corpo. Sem subpelo .",
+    "description": "O gato de pelo curto brasileiro..."
+  },
+  {
+    "id": "f1e61d8c-f81b-468f-b569-e9be0688acba",
+    "breed": "Sphynx",
+    "name": "Gato Pelado",
+  
 ```
 
-## Running the app
+## Breeds - [/cats/breeds](https://catapi-eight.vercel.app/api/cats/breeds)
+The breeds route, give you just the breeds of the database
 
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+```json
+[
+  "pelo curto brasileiro",
+  "Sphynx"
+]
 ```
 
-## Test
+## Breed -  [/cats/breeds/:breedName](https://catapi-eight.vercel.app/api/cats/breeds/Sphynx)
+The breed route give you just the breed passed on with the rout it self
 
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+```json
+[
+  {
+    "id": "f1e61d8c-f81b-468f-b569-e9be0688acba",
+    "breed": "Sphynx",
+    "name": "Gato Pelado",
+    "origin": "Canadá",
+    "fur": "Sem pelagem",
+    "description": "Sphynx, ou gato pelado canadense, é uma raça de gatos originária do Canadá, e que é conhecida por não possuir pelos.[1][2] O gene responsável pela sua nudez é a alopécia hereditária e é recessivo."
+  }
+]
 ```
 
-## Support
+# Works to do *"Roadmap"*
+- Make filter routes for origin, fur type, name and/or if
+- Treat the :breedName from the Breed url
+- Find a way to populate easily the database - *there is more than 50 breeds of cats to add* 
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+But mainly that is it, fill free to use and give help 🌵
 
-## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
